@@ -1,12 +1,7 @@
 import * as types from '../constants/ActionTypes'
 
 
-const initialState = [
-    // {
-    //     dictionaries: [],
-    //     id: 0
-    // }
-]
+const initialState = []
 
 // const initialDict = [{
 //     id: 0,
@@ -16,7 +11,8 @@ const initialState = [
 // const initialRow = [{
 //     id: 0,
 //     domain: '',
-//     range: ''
+//     range: '',
+//     error: null
 // }]
 
 function findChains(rows){
@@ -60,17 +56,16 @@ function evalRows(rows){
     } else {
         return evalDuplicates(findDuplicates(rows), rows)
     }
-    // return findChains(rows);
-    // // return evalDuplicates(findDuplicates(rows), rows)
 }
 
 export default function dictionaries(state = initialState, action) {
     switch (action.type) {
         case types.ADD_DICT:
+            const nextDictId = state.length > 0 ? Math.max(...state.map(dict => dict.id)) + 1 : 0;
             return [
                 ...state,
                 {
-                    id: action.id,
+                    id: nextDictId,
                     rows: []
                 }
             ]
@@ -123,49 +118,3 @@ export default function dictionaries(state = initialState, action) {
             return state;
     }
 }
-
-// export default function todos(state = initialState, action) {
-//     switch (action.type) {
-//         case ADD_TODO:
-//             return [
-//                 ...state,
-//                 {
-//                     id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
-//                     completed: false,
-//                     text: action.text
-//                 }
-//             ]
-
-//         case DELETE_TODO:
-//             return state.filter(todo =>
-//                 todo.id !== action.id
-//             )
-
-//         case EDIT_TODO:
-//             return state.map(todo =>
-//                 todo.id === action.id ?
-//                     { ...todo, text: action.text } :
-//                     todo
-//             )
-
-//         case COMPLETE_TODO:
-//             return state.map(todo =>
-//                 todo.id === action.id ?
-//                     { ...todo, completed: !todo.completed } :
-//                     todo
-//             )
-
-//         case COMPLETE_ALL_TODOS:
-//             const areAllMarked = state.every(todo => todo.completed)
-//             return state.map(todo => ({
-//                 ...todo,
-//                 completed: !areAllMarked
-//             }))
-
-//         case CLEAR_COMPLETED:
-//             return state.filter(todo => todo.completed === false)
-
-//         default:
-//             return state
-//     }
-// }
