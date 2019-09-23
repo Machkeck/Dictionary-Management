@@ -1,0 +1,11 @@
+.DictionaryRow {
+  display: flex;
+}
+
+.DictionaryRow .DictionaryRow-Range {
+  color: blue;
+}
+
+.DictionaryRow .DictionaryRow-Domain {
+  color: red;
+}

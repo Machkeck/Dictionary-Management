@@ -1,0 +1,12 @@
+.Dictionary{
+    display:flex;
+}
+
+.Dictionary-RowsContainer{
+    display:flex;
+    flex-flow:column;
+}
+
+.Dictionary button{
+    height: fit-content;
+}
