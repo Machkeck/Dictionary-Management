@@ -6,9 +6,7 @@ export default class DictionaryRow extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log('PROPS', props)
         this.state = { editingDomain: this.props.domain !== '' ? false : true, editingRange: false, isDomainNew: true, isRangeNew: true};
-        console.log('state', this.state)
     }
 
     handleDoubleClickD = () => {
