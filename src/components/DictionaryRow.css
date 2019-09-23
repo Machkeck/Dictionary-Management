@@ -1,14 +1,23 @@
 .DictionaryRow {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  margin: 2px;
 }
 
 .DictionaryRow .DictionaryRow-Range, .DictionaryRow .DictionaryRow-Domain {
     width: 100px;
+    padding: 10px;
+    margin: 1px;
+    background-color: #c0c0c033;
 
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.DictionaryRow .DictionaryRow-Range:hover, .DictionaryRow .DictionaryRow-Domain:hover{
+  background-color: #c0c0c0a6;
 }
 
 .DictionaryRow .DictionaryRow-Range {

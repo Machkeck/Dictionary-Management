@@ -3,7 +3,6 @@ import Dictionary from './Dictionary';
 import './DictionaryList.css';
 
 const DictionaryList = ({ dictionaries, actions }) => {
-    console.log('dictionaries', dictionaries)
     return (
     
     <div className='DictionaryList'>
@@ -16,7 +15,7 @@ const DictionaryList = ({ dictionaries, actions }) => {
                 />
             )}
         </ul>
-        <button onClick={() => actions.addDictionary()}>Add Dictionary</button>
+        <button onClick={() => actions.addDictionary()} className='btn' title="Add Dictionary"><i className="fas fa-plus-circle"></i></button>
     </div>
 )};
 

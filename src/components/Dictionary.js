@@ -27,12 +27,13 @@ const Dictionary = (props) => {
                         range={row.range}
                         deleteRow={deleteInDict(id, deleteRow)}
                         updateRow={updateInDict(id, updateRow)}
+                        error={row.error}
                     />
                 )}
             </div>
             <div className='Dictionary-ButtonsContainer'>
-                <button onClick={() => addRow(id, { domain: '', range: '' })}>Add Row</button>
-                <button onClick={() => deleteDictionary(id)}>Delete Dictionary</button>
+                <button onClick={() => addRow(id, { domain: '', range: '' })} className="btn" title="Add Row"><i className="fas fa-plus"></i></button>
+                <button onClick={() => deleteDictionary(id)} className="btn delete" title="Delete Dictionary"><i className="far fa-trash-alt"></i></button>
             </div>
         </li>
     )

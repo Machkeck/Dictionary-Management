@@ -24,4 +24,27 @@
 
 .App ul {
   list-style: none;
+  width: 60vw;
+}
+
+.App button.btn{
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.App button.btn:hover {
+  background-color: RoyalBlue;
+}
+
+.App button.btn.delete {
+  background-color: red;
+}
+
+.App button.btn.delete:hover {
+  background-color: lightcoral;
 }
