@@ -1,4 +1,5 @@
 import React from 'react';
+import './DictionaryRowText.css';
 
 export default class DictionaryRowText extends React.Component {
 
@@ -29,6 +30,7 @@ export default class DictionaryRowText extends React.Component {
   render() {
     return (
       <input
+        className="DictionaryRowText"
         type="text"
         placeholder={this.props.placeholder}
         autoFocus={true}

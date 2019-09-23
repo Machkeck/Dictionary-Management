@@ -1,5 +1,14 @@
 .DictionaryRow {
   display: flex;
+  justify-content: space-evenly;
+}
+
+.DictionaryRow .DictionaryRow-Range, .DictionaryRow .DictionaryRow-Domain {
+    width: 100px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .DictionaryRow .DictionaryRow-Range {

@@ -1,3 +1,8 @@
 .DictionaryList{
     display:flex;
+    justify-content: center;
+}
+
+.DictionaryList button{
+    height: fit-content;
 }

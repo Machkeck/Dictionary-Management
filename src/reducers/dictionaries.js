@@ -36,8 +36,8 @@ export default function dictionaries(state = initialState, action) {
         case types.ADD_ROW:
             return state.map(dict => {
                 if (dict.id === action.id) {
-                    console.log('ADD_ROW', action)
-                    const nextRowId = dict.rows.length > 0 ? Math.max(...dict.rows.map(row => row.id)) + 1 : 0 ;
+                    console.log('ADD_ROW', state, action)
+                    const nextRowId = dict.rows.length > 0 ? Math.max(...dict.rows.map(row => row.id)) + 1 : 0;
                     return {
                         ...dict,
                         rows: [
@@ -57,21 +57,24 @@ export default function dictionaries(state = initialState, action) {
             console.log('DELETE_ROW', action)
             return state.map(dict => {
                 if (dict.id === action.idDict) {
-                    return {...dict, rows: dict.rows.filter(row => row.id !== action.idRow)}
+                    return { ...dict, rows: dict.rows.filter(row => row.id !== action.idRow) }
                 } else {
                     return dict
                 }
             })
         case types.UPDATE_ROW:
+            console.log('UPDATE_ROW', state, action)
             return state.map(dict => {
                 if (dict.id === action.idDict) {
-                    return dict.rows.map(row => {
-                        if (row.id === action.idRow) {
-                            return { ...row, range: action.payload.range, domain: action.payload.domain }
-                        } else {
-                            return row
-                        }
-                    })
+                    return {
+                        ...dict, rows: dict.rows.map(row => {
+                            if (row.id === action.idRow) {
+                                return { ...row, range: action.payload.range, domain: action.payload.domain }
+                            } else {
+                                return row
+                            }
+                        })
+                    }
                 } else {
                     return dict
                 }
